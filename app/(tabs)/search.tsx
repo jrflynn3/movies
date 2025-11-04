@@ -59,7 +59,7 @@ const Search = () => {
               <SearchBar
                 placeholder="Search movies..."
                 onChangeText={(query) => setSearchQuery(query)}
-                onPress={() => {}}
+                onFocus={() => {}}
                 value={searchQuery}
               />
             </View>
