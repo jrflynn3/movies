@@ -1,20 +1,28 @@
 import { icons } from "@/constants/icons";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Image, TextInput, View } from "react-native";
 
 interface Props {
+  autofocus: boolean;
   placeholder: string;
-  onChangeText: (text: string) => void;
-  onFocus: () => void;
-  value: string;
+  onChangeText?: (text: string) => void;
+  onPress?: () => void;
+  value?: string;
 }
 
 const SearchBar = ({
+  autofocus,
   placeholder,
   onChangeText,
-  onFocus,
+  onPress,
   value = "",
 }: Props) => {
+  const inputRef = useRef<TextInput>(null);
+
+  useEffect(() => {
+    if (autofocus) inputRef.current?.focus();
+  }, []);
+
   return (
     <View className="flex-row items-center p-2">
       <Image
@@ -24,12 +32,13 @@ const SearchBar = ({
         tintColor="#AB8BFF"
       />
       <TextInput
-        onFocus={onFocus}
+        onPress={onPress}
         placeholder={placeholder}
         value={value}
         onChangeText={onChangeText}
         placeholderTextColor="#AB8BFF"
         className=" text-white ml-2 flex-1"
+        ref={inputRef}
       />
     </View>
   );

@@ -43,8 +43,8 @@ export default function Index() {
 
             <View className="flex-1 mt-5">
               <SearchBar
-                onChangeText={() => {}}
-                onFocus={() => router.push("/search")}
+                autofocus={false}
+                onPress={() => router.push("/search")}
                 placeholder="Search for a movie"
                 value=""
               />

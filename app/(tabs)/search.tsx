@@ -64,6 +64,7 @@ const Search = () => {
             </View>
             <View className="w-full mt-5">
               <SearchBar
+                autofocus
                 placeholder="Search movies..."
                 onChangeText={(query) => setSearchQuery(query)}
                 onFocus={() => {}}
