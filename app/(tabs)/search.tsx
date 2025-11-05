@@ -55,7 +55,7 @@ const Search = () => {
             <View className="w-full flex-row justify-center mt-20 items-center">
               <Image source={icons.logo} className="w-12 h-10" />
             </View>
-            <View className="flex-1 mt-5">
+            <View className="w-full mt-5">
               <SearchBar
                 placeholder="Search movies..."
                 onChangeText={(query) => setSearchQuery(query)}
