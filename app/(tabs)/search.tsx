@@ -32,7 +32,7 @@ const Search = () => {
   }, [searchQuery]);
 
   useEffect(() => {
-    if (movies?.length > 0 && movies?.[0] && searchQuery.trim()) {
+    if (movies && movies?.length > 0 && movies?.[0] && searchQuery.trim()) {
       updateSearchCount(searchQuery, movies[0]);
     }
   }, [movies]);
@@ -67,7 +67,6 @@ const Search = () => {
                 autofocus
                 placeholder="Search movies..."
                 onChangeText={(query) => setSearchQuery(query)}
-                onFocus={() => {}}
                 value={searchQuery}
               />
             </View>
@@ -86,12 +85,16 @@ const Search = () => {
               </Text>
             )}
 
-            {!loading && !error && searchQuery.trim() && movies?.length > 0 && (
-              <Text className="text-lg text-white font-bold mt-5 mb-3">
-                Search Results for{" "}
-                <Text className="text-accent">{searchQuery}</Text>
-              </Text>
-            )}
+            {!loading &&
+              !error &&
+              searchQuery.trim() &&
+              movies &&
+              movies?.length > 0 && (
+                <Text className="text-lg text-white font-bold mt-5 mb-3">
+                  Search Results for{" "}
+                  <Text className="text-accent">{searchQuery}</Text>
+                </Text>
+              )}
           </>
         }
         ListEmptyComponent={
